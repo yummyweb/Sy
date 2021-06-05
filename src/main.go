@@ -140,13 +140,12 @@ func (d Download) mergeFiles(sections [][2]int) error {
 			return err
 		}
 		// Merge the bytes in the file
-		n, err := f.Write(b)
+		_, err = f.Write(b)
 		if err != nil {
 			return err
 		}
 		// Delete file once we merge it
 		os.Remove(fn)
-		fmt.Printf("%v bytes merged\n", n)
 	}
 	return nil
 }
@@ -156,13 +155,13 @@ func main() {
 	var filename string
 	var sections int
 
-	fmt.Println("Url: ")
+	fmt.Printf("Url: ")
 	fmt.Scanln(&url)
 
-	fmt.Println("Filename: ")
+	fmt.Printf("Filename: ")
 	fmt.Scanln(&filename)
 
-	fmt.Println("Total sections: ")
+	fmt.Printf("Total sections: ")
 	fmt.Scanln(&sections)
 
 	startTime := time.Now()
