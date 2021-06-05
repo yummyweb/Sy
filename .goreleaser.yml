@@ -30,3 +30,12 @@ changelog:
     exclude:
       - '^docs:'
       - '^test:'
+
+# Same repo deployment
+brews:
+    - github:
+          owner: yummyweb>
+          name: Sy
+      folder: Formula
+      homepage: https://github.com/yummyweb/Sy
+      description: Your friendly neighbourhood download manager.
