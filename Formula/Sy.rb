@@ -5,24 +5,24 @@
 class Sy < Formula
   desc "Your friendly neighbourhood download manager."
   homepage "https://github.com/yummyweb/Sy"
-  version "1.1.0"
+  version "1.2.0"
   bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/yummyweb/Sy/releases/download/v1.1.0/Sy_1.1.0_Darwin_x86_64.tar.gz"
-      sha256 "ee1f1a2b2d0c4c06b0c68eef42b995fde49b35096b06d9bc294499be0535138e"
+      url "https://github.com/yummyweb/Sy/releases/download/v1.2.0/Sy_1.2.0_Darwin_x86_64.tar.gz"
+      sha256 "cc71ef9b126e0faa68d11a31ef297fe69698db0855d20b0f51fb6a5176bbb098"
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/yummyweb/Sy/releases/download/v1.1.0/Sy_1.1.0_Linux_x86_64.tar.gz"
-      sha256 "4a56f3410b3bc27735bf56e884bd536e79cb7c93f5ed965e18bfb508d23ececc"
+      url "https://github.com/yummyweb/Sy/releases/download/v1.2.0/Sy_1.2.0_Linux_x86_64.tar.gz"
+      sha256 "39f44831fcba3f8e4c36033d3a8df2d7b8e7360518fa7defaf2ce65f48114946"
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/yummyweb/Sy/releases/download/v1.1.0/Sy_1.1.0_Linux_arm64.tar.gz"
-      sha256 "d1d7574de0eec607cfb4aaffc9efa546cb8674e0a7c4db7791d3b5a1680e0988"
+      url "https://github.com/yummyweb/Sy/releases/download/v1.2.0/Sy_1.2.0_Linux_arm64.tar.gz"
+      sha256 "a1236fa6fb5424524de822d97cfc9b57c3534a0a050116a4e26ea1bcb256cbe1"
     end
   end
 
