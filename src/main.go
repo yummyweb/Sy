@@ -62,7 +62,6 @@ func (d Download) Start() error {
 			sections[i][1] = size - 1
 		}
 	}
-	fmt.Println(sections)
 
 	var wg sync.WaitGroup
 	for i, s := range sections {
