@@ -7,9 +7,11 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
 	"strconv"
 	"sync"
 	"time"
+
 	"github.com/briandowns/spinner"
 )
 
@@ -172,6 +174,15 @@ func (d Download) mergeFiles(sections [][2]int) error {
 }
 
 func main() {
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt)
+	go func(){
+		for range c {
+			formattedPrint("\nSIGTERM: Exiting gracefully\n", "red")
+			formattedPrint("Bye Bye 👋\n", "red")
+			os.Exit(1)
+		}
+	}()
 	var url string
 	var filename string
 	var sections int
