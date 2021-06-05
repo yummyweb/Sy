@@ -152,11 +152,24 @@ func (d Download) mergeFiles(sections [][2]int) error {
 }
 
 func main() {
+	var url string
+	var filename string
+	var sections int
+
+	fmt.Println("Url: ")
+	fmt.Scanln(&url)
+
+	fmt.Println("Filename: ")
+	fmt.Scanln(&filename)
+
+	fmt.Println("Total sections: ")
+	fmt.Scanln(&sections)
+
 	startTime := time.Now()
 	d := Download{
-		Url:           "https://r1---sn-ci5gup-qxay.googlevideo.com/videoplayback?expire=1622899930&ei=eii7YMGeFY-R2_gPr8a1yAE&ip=70.39.77.131&id=o-AAseiVR7txfOGnHjnmQiROqj3UN63G1pKlpD6h-KneH2&itag=22&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=jmgDNeTiDFHl__X0cksi4oMF&cnr=14&ratebypass=yes&dur=45.093&lmt=1622867710227282&fexp=24001373,24007246&c=WEB&txp=5532434&n=YPFUpZu6PvQR2MrZi&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgPSO9bfztgxGiJLIchfYdcdJ0DQJ-Ke93IT3PlQQkuFACIBHnfrfPCdOuEtbN4czdwbZjzJvBKLumHuDpuMilTJz9&title=Chance%20%7C%20Marvel%20Studios%27%20Loki%20%7C%20Disney%2B&redirect_counter=1&rm=sn-qxoee7e&req_id=f78b9618ffaa3ee&cms_redirect=yes&ipbypass=yes&mh=UO&mip=171.50.140.37&mm=31&mn=sn-ci5gup-qxay&ms=au&mt=1622886524&mv=m&mvi=1&pl=22&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAPQfFFgasYtTePlL28-HIDZk3GWOUjKD1O0t4jjezXNAAiAXkfdUZeKfdqrdJB67-_uJAagAYxIEbDYROOr4GGqV-A%3D%3D",
-		TargetPath:    "loki.mp4",
-		TotalSections: 10,
+		Url:           url, // "https://r1---sn-ci5gup-qxay.googlevideo.com/videoplayback?expire=1622899930&ei=eii7YMGeFY-R2_gPr8a1yAE&ip=70.39.77.131&id=o-AAseiVR7txfOGnHjnmQiROqj3UN63G1pKlpD6h-KneH2&itag=22&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=jmgDNeTiDFHl__X0cksi4oMF&cnr=14&ratebypass=yes&dur=45.093&lmt=1622867710227282&fexp=24001373,24007246&c=WEB&txp=5532434&n=YPFUpZu6PvQR2MrZi&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Ccnr%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgPSO9bfztgxGiJLIchfYdcdJ0DQJ-Ke93IT3PlQQkuFACIBHnfrfPCdOuEtbN4czdwbZjzJvBKLumHuDpuMilTJz9&title=Chance%20%7C%20Marvel%20Studios%27%20Loki%20%7C%20Disney%2B&redirect_counter=1&rm=sn-qxoee7e&req_id=f78b9618ffaa3ee&cms_redirect=yes&ipbypass=yes&mh=UO&mip=171.50.140.37&mm=31&mn=sn-ci5gup-qxay&ms=au&mt=1622886524&mv=m&mvi=1&pl=22&lsparams=ipbypass,mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAPQfFFgasYtTePlL28-HIDZk3GWOUjKD1O0t4jjezXNAAiAXkfdUZeKfdqrdJB67-_uJAagAYxIEbDYROOr4GGqV-A%3D%3D"
+		TargetPath:    filename,
+		TotalSections: sections,
 	}
 	err := d.Start()
 	if err != nil {
