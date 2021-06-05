@@ -54,7 +54,7 @@ func (d Download) Start() error {
 			sections[i][0] = sections[i-1][1] + 1
 		}
 
-		if i < d.TotalSections - 1 {
+		if i < d.TotalSections-1 {
 			// Ending byte of other section
 			sections[i][1] = sections[i][0] + secSize
 		} else {
@@ -104,7 +104,7 @@ func (d Download) download(index int, section [2]int) error {
 	}
 
 	r.Header.Set("Range", fmt.Sprintf("bytes=%v-%v", section[0], section[1]))
-	
+
 	res, err := http.DefaultClient.Do(r)
 	if err != nil {
 		return err
@@ -167,7 +167,7 @@ func main() {
 
 	startTime := time.Now()
 	d := Download{
-		Url:           url, 
+		Url:           url,
 		TargetPath:    filename,
 		TotalSections: sections,
 	}
