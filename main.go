@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"os/signal"
 	"strconv"
@@ -47,6 +48,11 @@ func formattedPrint(s string, color string) {
 
 func (d Download) Start() error {
 	formattedPrint("Starting download...\n", "bold")
+	_, err := url.ParseRequestURI(d.Url)
+	if err != nil {
+		return err
+	}
+
 	r, err := d.getNewRequest("HEAD")
 	if err != nil {
 		return err
