@@ -60,7 +60,7 @@ func (d Download) Start() error {
 	if res.StatusCode > 299 {
 		return errors.New(fmt.Sprintf("Can't process, response is %v", res.StatusCode))
 	}
-
+	
 	size, err := strconv.Atoi(res.Header.Get("Content-Length"))
 	if err != nil {
 		return err
@@ -126,7 +126,7 @@ func (d Download) download(index int, section [2]int) error {
 	if err != nil {
 		return err
 	}
-
+	
 	r.Header.Set("Range", fmt.Sprintf("bytes=%v-%v", section[0], section[1]))
 
 	res, err := http.DefaultClient.Do(r)
